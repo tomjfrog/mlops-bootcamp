@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 
 '''
 Create an instance of Flask class
@@ -10,16 +10,16 @@ app=Flask(__name__)
 # Create a route
 @app.route("/")
 def welcome():
-    return "Welcome to this Flask course.  It's the best course"
+    return "<html><h1>Welcome to the Flask Course</h1></html>"
 
 
-@app.route()
+@app.route("/index")
 def index():
-    return "Welcome to the index page"
+    return render_template('index.html')
 
-@app.route("/greeting")
+@app.route("/about")
 def greet():
-    return "Good Morning!"
+    return render_template('about.html')
 
 if __name__=="__main__":
     app.run(debug=True) 
